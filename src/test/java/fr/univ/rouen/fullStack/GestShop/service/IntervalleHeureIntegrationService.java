@@ -13,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -21,8 +21,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 public class IntervalleHeureIntegrationService {
-    private static  final LocalDateTime OUVERTURE=LocalDateTime.now();
-    private  static  final  LocalDateTime FERMETURE=LocalDateTime.now() ;
+    private static  final LocalTime OUVERTURE=LocalTime.now();
+    private  static  final  LocalTime FERMETURE=LocalTime.now() ;
 
     @Autowired
     private  InterValleHeureService interValleHeureService ;

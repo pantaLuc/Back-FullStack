@@ -8,21 +8,26 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import java.time.LocalDateTime;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.time.LocalTime;
+import java.time.LocalTime;
 
 @Entity
 public class IntervalleHeure {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
-    private LocalDateTime ouverture ;
-    private LocalDateTime fermeture ;
+    @JsonFormat(pattern = "HH:mm")
+    private LocalTime ouverture ;
+    @JsonFormat(pattern = "HH:mm")
+    private LocalTime fermeture ;
     
     
     public IntervalleHeure() {
     }
 
-    public IntervalleHeure(LocalDateTime ouverture, LocalDateTime fermeture) {
+    public IntervalleHeure(LocalTime ouverture, LocalTime fermeture) {
 		this.ouverture = ouverture;
 		this.fermeture = fermeture;
 	}
@@ -36,19 +41,19 @@ public class IntervalleHeure {
         this.id = id;
     }
 
-    public LocalDateTime getOuverture() {
+    public LocalTime getOuverture() {
         return ouverture;
     }
 
-    public void setOuverture(LocalDateTime ouverture) {
+    public void setOuverture(LocalTime ouverture) {
         this.ouverture = ouverture;
     }
 
-    public LocalDateTime getFermeture() {
+    public LocalTime getFermeture() {
         return fermeture;
     }
 
-    public void setFermeture(LocalDateTime fermeture) {
+    public void setFermeture(LocalTime fermeture) {
         this.fermeture = fermeture;
     }
 

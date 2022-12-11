@@ -1,6 +1,6 @@
 package fr.univ.rouen.fullStack.GestShop.service;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,7 +32,7 @@ public class InterValleHeureService {
         return intervalle;
     }
   //find by ouverture et fermeture
-    public Optional<IntervalleHeure> findbyOuvertureetFetmeture(LocalDateTime ouverture,LocalDateTime fermeture) {
+    public Optional<IntervalleHeure> findbyOuvertureetFetmeture(LocalTime ouverture,LocalTime fermeture) {
 		return intervalleHeureRepository.findByOuvertureAndFermeture(ouverture,fermeture);
     }
 
