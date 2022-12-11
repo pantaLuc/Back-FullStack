@@ -1,5 +1,6 @@
 package fr.univ.rouen.fullStack.GestShop.models;
 
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 
@@ -8,7 +9,7 @@ Role doit pouvoir implementer GrantedAuthority
 */
 @Entity
 //public class Role  implements GrantedAuthority {
-public class Role  {
+public class Role  implements GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id ;
@@ -49,8 +50,8 @@ public class Role  {
         this.description = description;
     }
 
-    /*@Override
+    @Override
     public String getAuthority() {
         return name;
-    }*/
+    }
 }
