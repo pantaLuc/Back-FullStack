@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Admin",
+    "description": "Gere Les Utilisateurs du systemes "
+  },
+  {
+    "id": 2,
+    "name": "Vendeur",
+    "description": "Cree les Boutiques et  les produits associes à chaque boutique"
+  },
+  {
+    "id": 3,
+    "name": "Livreur",
+    "description": "Est chargé de la gestion des Boutiques  "
+  }
+
+]

@@ -1,0 +1,79 @@
+[
+  {
+    "id": 0,
+    "joursemaine": "LUNDI",
+    "intervalleHeure": [
+      {
+        "id": 0
+      },
+      {
+        "id": 0
+      }
+    ],
+    "estEnCongé": false
+  },
+  {
+    "id": 0,
+    "joursemaine": "MARDI",
+    "intervalleHeure": [
+      {
+        "id": 0
+      },
+      {
+        "id": 0
+      }
+    ],
+    "estEnCongé": false
+  },
+  {
+    "id": 0,
+    "joursemaine": "MERCREDI",
+    "intervalleHeure": [
+      {
+        "id": 0
+      },
+      {
+        "id": 0
+      }
+    ],
+    "estEnCongé": false
+  },{
+  "id": 0,
+  "joursemaine": "JEUDI",
+  "intervalleHeure": [
+    {
+      "id": 0
+    },
+    {
+      "id": 0
+    }
+  ],
+  "estEnCongé": false
+},
+  {
+    "id": 0,
+    "joursemaine": "VENDREDI",
+    "intervalleHeure": [
+      {
+        "id": 0
+      },
+      {
+        "id": 0
+      }
+    ],
+    "estEnCongé": false
+  },
+  {
+    "id": 0,
+    "joursemaine": "SAMEDI",
+    "intervalleHeure": [
+      {
+        "id": 0
+      },
+      {
+        "id": 0
+      }
+    ],
+    "estEnCongé": false
+  }
+]

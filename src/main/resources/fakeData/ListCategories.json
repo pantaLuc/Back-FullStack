@@ -1,0 +1,28 @@
+[
+  {
+    "id": 0,
+    "nom": "Vin",
+    "description": "string"
+  },
+  {
+    "id": 0,
+    "nom": "Parfumerie",
+    "description": "string"
+  },
+  {
+    "id": 0,
+    "nom": "Hygiène",
+    "description": "string"
+  },
+  {
+    "id": 0,
+    "nom": "Épicerie",
+    "description": "string"
+  },
+  {
+    "id": 0,
+    "nom": "Textile",
+    "description": "string"
+  }
+
+]
