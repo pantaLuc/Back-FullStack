@@ -1,10 +1,12 @@
 package fr.univ.rouen.fullStack.GestShop.controller;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.univ.rouen.fullStack.GestShop.dto.CategoryDto;
+import fr.univ.rouen.fullStack.GestShop.models.Categorie;
 import fr.univ.rouen.fullStack.GestShop.models.IntervalleHeure;
 import fr.univ.rouen.fullStack.GestShop.models.Produit;
 import fr.univ.rouen.fullStack.GestShop.service.InterValleHeureService;
@@ -39,18 +43,24 @@ public class ControlleurIntervalleHeure {
             return ResponseEntity.status(HttpStatus.OK).body(interval);
         }
     }
-    @GetMapping( "")
+    @GetMapping("/list")
     public List<IntervalleHeure> allIntervalle(){
         return  interValleHeureService.allintervalle();
     }
     @GetMapping( "/search")
-    public Optional<IntervalleHeure> search(@RequestParam String ouverture,@RequestParam String fermeture){
-    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS");
-    	LocalDateTime ouvertureTime = LocalDateTime.parse(ouverture, formatter);
-    	LocalDateTime fermetureTime = LocalDateTime.parse(fermeture, formatter);
-    	
-        return  interValleHeureService.findbyOuvertureetFetmeture(ouvertureTime,fermetureTime);
+    public @ResponseBody ResponseEntity search(@RequestParam String ouverture,@RequestParam String fermeture){
+    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+    	LocalTime ouvertureTime = LocalTime.parse(ouverture, formatter);
+    	LocalTime fermetureTime = LocalTime.parse(fermeture, formatter);
+    	Optional<IntervalleHeure> intervalle = interValleHeureService.findbyOuvertureetFetmeture(ouvertureTime,fermetureTime);
+        if (intervalle.isEmpty()) {
+            return ResponseEntity.status(404).body("intervalle n' existe pas");
+        }else{
+            return ResponseEntity.status(HttpStatus.OK).body(intervalle);
+        }
     }
+
+
     @DeleteMapping( "")
     public void delete(@RequestParam Long id){
         interValleHeureService.deleteById(id);
