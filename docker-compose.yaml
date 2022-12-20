@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  db:
+    container_name: fullStack
+    image: mysql:8.0
+    #Le cap_add défini à SYS_NICE supprime certains messages d'erreur inutiles.
+    cap_add:
+      - SYS_NICE
+    #Ensuite, nous demandons à docker-compose de toujours redémarrer ce conteneur s'il échoue.
+    restart: always
+    #Pour ne pas utiliser les parametre par defaut
+    environment:
+      - MYSQL_DATABASE=fullStack
+      - MYSQL_USER=fullstack
+      - MYSQL_PASSWORD=fullstack
+      - MYSQL_ROOT_PASSWORD=fullstack
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    #Ou on va persister nos données
+    volumes:
+      - db:/var/lib/mysql
+volumes:
+  db:
