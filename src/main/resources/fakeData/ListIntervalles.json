@@ -1,7 +1,18 @@
 [
   {
-    "id": 0,
-    "ouverture": "2022-12-03T08:16:15.100Z",
-    "fermeture": "2022-12-03T08:16:15.100Z"
+    "ouverture": "09:00",
+    "fermeture": "20:00"
+  },
+  {
+    "ouverture": "10:00",
+    "fermeture": "19:00"
+  },
+  {
+    "ouverture": "08:00",
+    "fermeture": "22:00"
+  },
+  {
+    "ouverture": "09:30",
+    "fermeture": "18:30"
   }
 ]

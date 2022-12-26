@@ -24,7 +24,7 @@ public class CategorieService {
     }
     // create a new categorie
     public Optional<Categorie> create(String nom, String description){
-
+        LOGGER.info("Tentative de création d' une Categorie");
         Optional<Categorie> categorie =Optional.empty() ;
         if (! categoryRepository.findByNom(nom).isPresent()){
           categorie = Optional.of(categoryRepository.save(new Categorie(nom,description)));
@@ -33,11 +33,12 @@ public class CategorieService {
     }
     // search By Name a Categorie
    public Optional<Categorie> searchByName(String nom) {
-
+        LOGGER.info("Tentative de récherche d' une catégorie par Nom");
         return  categoryRepository.findByNom("nom");
    }
   // delete By Id A categorie
   public void deleteById(long id ){
+      LOGGER.info("Tentative de Suppréssion d' une Categorie");
         Optional<Categorie> categorie=categoryRepository.findById(id);
         if(categorie.isPresent()){
             categoryRepository.delete(categorie.get());
@@ -45,12 +46,14 @@ public class CategorieService {
   }
   // Update aCategorie Name
   public Categorie updateName(Categorie categorie){
+      LOGGER.info("Tentative de modification   d' une Categorie");
         if(categoryRepository.findById(categorie.getId()).isPresent()){
             return categoryRepository.save(categorie);
         }
         return null;
   }
     public List<Categorie> allCategorie(){
+        LOGGER.info("Tentative d' obtention d'une List des Categorie");
         return (List<Categorie>) categoryRepository.findAll();
     }
 }

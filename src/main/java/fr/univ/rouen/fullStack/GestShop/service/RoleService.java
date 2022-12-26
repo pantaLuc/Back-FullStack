@@ -22,7 +22,7 @@ public class RoleService {
     }
 
     public Optional<Role> createRole(String name  , String description){
-        LOGGER.info("tentative de creation de role");
+        LOGGER.info("Tentative de creation de role");
         Optional<Role> role =Optional.empty();
         if (! roleRepository.findByName(name).isPresent()){
             role = Optional.of(roleRepository.save(new Role(name,description)));
@@ -31,7 +31,7 @@ public class RoleService {
     }
 
     public Optional<Role> searchByName(String nom) {
-        LOGGER.info("tentative de recherche de role par nom");
+        LOGGER.info("Tentative de recherche de role par nom");
 
         return  roleRepository.findByName("nom");
     }
@@ -44,6 +44,7 @@ public class RoleService {
     }
     // Update aCategorie Name
     public Role updateName(long id , String nom){
+        LOGGER.info("Tentative de modification d'un role");
         Optional<Role> categorie=roleRepository.findById(id);
         if(categorie.isPresent()){
             categorie.get().setName(nom);
