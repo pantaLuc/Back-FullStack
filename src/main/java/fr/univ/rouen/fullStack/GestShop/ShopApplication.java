@@ -1,5 +1,9 @@
 package fr.univ.rouen.fullStack.GestShop;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import fr.univ.rouen.fullStack.GestShop.models.IntervalleHeure;
+import fr.univ.rouen.fullStack.GestShop.service.InterValleHeureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -12,6 +16,12 @@ import fr.univ.rouen.fullStack.GestShop.service.UtilisateurService;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
 
 @SpringBootApplication
 @OpenAPIDefinition(info=@Info(title ="Gestionnaire de Boutiques et produits" ,
@@ -26,6 +36,8 @@ import io.swagger.v3.oas.annotations.info.Info;
 	private RoleService roleService ;
 	@Autowired
 	private UtilisateurService utilisateurService ;
+	@Autowired
+	private InterValleHeureService interValleHeureService ;
 
 	public static void main(String[] args) {
 
@@ -38,18 +50,36 @@ import io.swagger.v3.oas.annotations.info.Info;
 		createRole();
 		Iterable<Role>  roles=roleService.allRoles();
 		roles.forEach((role -> {
-			System.out.println(role.getName());
+			System.out.println(role.getName()+role.getId());
 		}));
-
 		createUser();
+		//createIntervalle();
+		Iterable<IntervalleHeure> intervalleHeures=interValleHeureService.allintervalle();
+		intervalleHeures.forEach((intervalleHeure -> {
+			System.out.println(intervalleHeure.getId());
+		}));
 		//System.out.println(utilisateurService.signin("panta" ,"letmein"));
 	}
 
-	public void createRole(){
-		roleService.createRole("Admin" ,"Il administre les boutique");
-		roleService.createRole("Livreur" ,"Il livre");
-		roleService.createRole("Vendeur" ,"Il vend dans les boutiques") ;
-		roleService.createRole("Admin" ,"Il administre les boutique");
+	// creation des rôles à partir de fake data
+	public void createRole() throws IOException {
+		String jsonString = new String(Files.readAllBytes(Paths.get("src/main/resources/fakeData/ListRoles.json")), StandardCharsets.UTF_8);
+		ObjectMapper objectMapper = new ObjectMapper();
+		List<Role> roles = objectMapper.readValue(jsonString, new TypeReference<List<Role>>(){});
+		for (Role role : roles) {
+			roleService.createRole(role.getName(),role.getDescription());
+		}
+	}
+
+	// creation des Intervalles
+
+	public  void createIntervalle() throws IOException {
+		String jsonString = new String(Files.readAllBytes(Paths.get("src/main/resources/fakeData/ListIntervalles.json")), StandardCharsets.UTF_8);
+		ObjectMapper objectMapper = new ObjectMapper();
+		List<IntervalleHeure> intervalleHeures = objectMapper.readValue(jsonString, new TypeReference<List<IntervalleHeure>>(){});
+		for (IntervalleHeure intervalleHeure : intervalleHeures) {
+			interValleHeureService.create(intervalleHeure);
+		}
 	}
 
 	public void createUser(){

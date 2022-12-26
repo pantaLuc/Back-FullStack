@@ -2,17 +2,11 @@
   {
     "id": 1,
     "name": "Admin",
-    "description": "Gere Les Utilisateurs du systemes "
+    "description": "Gere Les Utilisateurs du systemes et c"
   },
   {
     "id": 2,
-    "name": "Vendeur",
-    "description": "Cree les Boutiques et  les produits associes à chaque boutique"
-  },
-  {
-    "id": 3,
-    "name": "Livreur",
-    "description": "Est chargé de la gestion des Boutiques  "
+    "name": "Vendeur-livreur",
+    "description": "Vend des produits et livre les commandes aux clients"
   }
-
 ]
