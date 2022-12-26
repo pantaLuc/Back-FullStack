@@ -34,7 +34,7 @@ public class CategorieService {
     // search By Name a Categorie
    public Optional<Categorie> searchByName(String nom) {
 
-        return  categoryRepository.findByNom("nom");
+        return  categoryRepository.findByNom(nom);
    }
   // delete By Id A categorie
   public void deleteById(long id ){

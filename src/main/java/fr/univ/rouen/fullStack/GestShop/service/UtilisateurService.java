@@ -17,6 +17,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -64,13 +65,14 @@ public class UtilisateurService {
         Optional<Utilisateur> utilisateur=Optional.empty() ;
         if (! utilisateurRepository.findByUsername(username).isPresent()){
             Optional<Role> role =roleRepository.findByName("Admin");
-
+            List<Role> roles= new ArrayList<>();
+            roles.add(role.get());
             utilisateur=Optional.of(utilisateurRepository.save( new Utilisateur(
                     username ,
                     passwordEncoder.encode(password),
                     firstName ,
                     lastName ,
-                    role.get()
+                    roles
             )));
         }
         return utilisateur ;

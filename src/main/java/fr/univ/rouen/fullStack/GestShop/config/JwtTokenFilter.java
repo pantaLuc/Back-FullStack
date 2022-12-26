@@ -27,7 +27,7 @@ public class JwtTokenFilter extends GenericFilterBean {
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain filterChain)
             throws IOException, ServletException {
-        LOGGER.info("Process request to check for a JSON Web Token ");
+        LOGGER.info("Verification d' un JSon Web Token ");
         //Check for Authorization:Bearer JWT
         String headerValue = ((HttpServletRequest)req).getHeader("Authorization");
         getBearerToken(headerValue).ifPresent(token-> {

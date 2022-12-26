@@ -4,6 +4,7 @@ package fr.univ.rouen.fullStack.GestShop.controller;
 import fr.univ.rouen.fullStack.GestShop.dto.ProduitDto;
 import fr.univ.rouen.fullStack.GestShop.models.Categorie;
 import fr.univ.rouen.fullStack.GestShop.models.Produit;
+import fr.univ.rouen.fullStack.GestShop.service.CategorieService;
 import fr.univ.rouen.fullStack.GestShop.service.ProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,20 +21,29 @@ import java.util.Optional;
 public class ControlleurProduit {
     @Autowired
     private ProduitService produitService ;
-
+    @Autowired
+    private CategorieService categorieService ;
     @GetMapping( "/list")
     public List<Produit> produitList(){
         return  produitService.allProduct();
     }
     @PostMapping("")
-    public @ResponseBody ResponseEntity   create(@RequestBody @Valid ProduitDto produitdto){
-    	Optional<Produit> produit =produitService.create(
+    public @ResponseBody ResponseEntity   create(@RequestBody @Valid Produit produitdto){
+        List<Categorie> categorieLists=categorieService.allCategorie();
+        List<Categorie> categorieList=new ArrayList<>();
+        Optional<Produit> produit=Optional.empty();
+        produitdto.getCategorieList().forEach(categorie ->{
+            categorieList.add(categorie);
+        });
+        if(!produitdto.getCategorieList().isEmpty()){
+        produit =produitService.create(
                 produitdto.getNom(),produitdto.getDescription(),
-                (Categorie) produitdto.getCategorieList(), produitdto.getImageUrl() ,
+                produitdto.getCategorieList(), produitdto.getImageUrl() ,
                 produitdto.getPrix(),
                 produitdto.getBoutique(),
                 produitdto.getQuantité()
                 );
+        }
     	if (produit == null) {
             return ResponseEntity.status(409).body("produit existe deja");
         }else{

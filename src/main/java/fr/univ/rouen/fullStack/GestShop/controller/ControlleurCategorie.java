@@ -19,6 +19,7 @@ import static spark.Spark.*;
 
 @RestController
 @RequestMapping("/categorie")
+@CrossOrigin("*")
 public class ControlleurCategorie {
 
         @Autowired

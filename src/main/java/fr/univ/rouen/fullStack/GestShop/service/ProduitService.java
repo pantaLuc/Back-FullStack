@@ -19,7 +19,7 @@ public class ProduitService {
         this.produitRepository = produitRepository;
     }
     /*Creation d'un produit */
-    public Optional<Produit> create(String product_name , String description, Categorie categorie,
+    public Optional<Produit> create(String product_name , String description, List<Categorie> categorie,
      String imageUrl, double prix , Boutique boutique , int quantité ){
         Optional<Produit> produit=Optional.empty() ;
 
@@ -31,7 +31,7 @@ public class ProduitService {
 
     public Optional<Produit> searchByName(String nom){
     	Optional<Produit> produit =Optional.empty() ;
-        if( produitRepository.findByNom(nom).isPresent()){
+        if(!produitRepository.findByNom(nom).isPresent()){
             produit=produitRepository.findByNom(nom) ;
         }
         return produit ;
