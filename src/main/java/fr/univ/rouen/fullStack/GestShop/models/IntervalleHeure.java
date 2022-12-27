@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalTime;
 import java.time.LocalTime;
@@ -18,9 +19,11 @@ public class IntervalleHeure {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
-    @JsonFormat(pattern = "HH:mm")
+    @DateTimeFormat(pattern = "HH:mm")
+   // @JsonFormat(pattern = "HH:mm")
     private LocalTime ouverture ;
-    @JsonFormat(pattern = "HH:mm")
+    @DateTimeFormat(pattern = "HH:mm")
+    //@JsonFormat(pattern = "HH:mm")
     private LocalTime fermeture ;
     
     

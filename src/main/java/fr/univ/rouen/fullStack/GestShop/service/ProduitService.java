@@ -4,6 +4,8 @@ import fr.univ.rouen.fullStack.GestShop.models.Boutique;
 import fr.univ.rouen.fullStack.GestShop.models.Categorie;
 import fr.univ.rouen.fullStack.GestShop.models.Produit;
 import fr.univ.rouen.fullStack.GestShop.repository.ProduitRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 
@@ -12,7 +14,7 @@ import java.util.Optional;
 
 @Service
 public class ProduitService {
-
+    private static final Logger LOGGER= LoggerFactory.getLogger(CategorieService.class) ;
     private ProduitRepository produitRepository;
 
     public ProduitService(ProduitRepository produitRepository) {
@@ -21,6 +23,7 @@ public class ProduitService {
     /*Creation d'un produit */
     public Optional<Produit> create(String product_name , String description, Categorie categorie,
      String imageUrl, double prix , Boutique boutique , int quantité ){
+        LOGGER.info("Tentative de création d' un prosduit ");
         Optional<Produit> produit=Optional.empty() ;
 
         produit=Optional.of(produitRepository.save(new Produit(product_name ,description ,categorie ,
@@ -30,6 +33,7 @@ public class ProduitService {
     }
 
     public Optional<Produit> searchByName(String nom){
+        LOGGER.info("Tentative de récherche d' un produit par Nom ");
     	Optional<Produit> produit =Optional.empty() ;
         if( produitRepository.findByNom(nom).isPresent()){
             produit=produitRepository.findByNom(nom) ;
@@ -39,6 +43,7 @@ public class ProduitService {
 
     // recherche  par  Categorie
     public Optional<Produit> searchByCategorieNom(String nom){
+        LOGGER.info("Tentative de récherche d' un produit par Catégorie ");
         Optional<Produit> produits =Optional.empty() ;
         if( produitRepository.findByCategorieList(nom).isPresent()){
             produits=produitRepository.findByCategorieList(nom) ;
@@ -47,6 +52,7 @@ public class ProduitService {
     }
     // recherche par le nom de la boutique
     public Optional<Produit> searchByBoutiqueNom(String nom){
+        LOGGER.info("Tentative de récherche d' un produit par Boutique ");
         Optional<Produit> produits=Optional.empty() ;
         if(produitRepository.findAllByBoutique_Nom(nom).isPresent()){
             produits=produitRepository.findAllByBoutique_Nom(nom);
@@ -55,6 +61,7 @@ public class ProduitService {
     }
     // Modifier Un produit
     public Produit updateProduit(Produit produit){
+        LOGGER.info("Tentative de création d' un produit par Bouti ");
         if( produitRepository.findById(produit.getId()).isPresent()){
             return produitRepository.save(produit);
         }
@@ -62,6 +69,7 @@ public class ProduitService {
     }
   // delete Method
     public void deleteById(long id ){
+        LOGGER.info("Tentative de suppression d' un produit ");
         Optional<Produit> produit=produitRepository.findById(id);
         if(produit.isPresent()){
             produitRepository.delete(produit.get());
@@ -69,6 +77,7 @@ public class ProduitService {
     }
     //all Categorie
     public List<Produit> allProduct(){
+        LOGGER.info("Tentative d'obtention  de la liste de produits");
         return produitRepository.findAll();
     }
 }

@@ -44,7 +44,7 @@ public class UtilisateurService {
     }
     // signin
      public Optional<String> signin(String username, String password){
-        LOGGER.info("tentative de creation d' un utilisateur ");
+        LOGGER.info("Tentative de creation d' un utilisateur ");
         Optional<String> token = Optional.empty() ;
         Optional<Utilisateur> utilisateur = utilisateurRepository.findByUsername(username) ;
         if (utilisateur.isPresent()){

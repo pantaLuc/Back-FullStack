@@ -1,9 +1,13 @@
 package fr.univ.rouen.fullStack.GestShop;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import fr.univ.rouen.fullStack.GestShop.models.Categorie;
+import fr.univ.rouen.fullStack.GestShop.models.Horaire;
 import fr.univ.rouen.fullStack.GestShop.models.IntervalleHeure;
-import fr.univ.rouen.fullStack.GestShop.service.InterValleHeureService;
+import fr.univ.rouen.fullStack.GestShop.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -11,8 +15,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import fr.univ.rouen.fullStack.GestShop.ShopApplication;
 import fr.univ.rouen.fullStack.GestShop.models.Role;
-import fr.univ.rouen.fullStack.GestShop.service.RoleService;
-import fr.univ.rouen.fullStack.GestShop.service.UtilisateurService;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
@@ -21,6 +23,8 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @SpringBootApplication
@@ -38,6 +42,10 @@ import java.util.List;
 	private UtilisateurService utilisateurService ;
 	@Autowired
 	private InterValleHeureService interValleHeureService ;
+	@Autowired
+	private CategorieService categorieService ;
+	@Autowired
+	private HoraireService horaireService ;
 
 	public static void main(String[] args) {
 
@@ -48,17 +56,11 @@ import java.util.List;
 	public void run(String... args) throws Exception {
 
 		createRole();
-		Iterable<Role>  roles=roleService.allRoles();
-		roles.forEach((role -> {
-			System.out.println(role.getName()+role.getId());
-		}));
 		createUser();
-		//createIntervalle();
-		Iterable<IntervalleHeure> intervalleHeures=interValleHeureService.allintervalle();
-		intervalleHeures.forEach((intervalleHeure -> {
-			System.out.println(intervalleHeure.getId());
-		}));
-		//System.out.println(utilisateurService.signin("panta" ,"letmein"));
+		createIntervalle();
+		createCategorie();
+		creationHoraire();
+
 	}
 
 	// creation des rôles à partir de fake data
@@ -72,16 +74,40 @@ import java.util.List;
 	}
 
 	// creation des Intervalles
-
 	public  void createIntervalle() throws IOException {
 		String jsonString = new String(Files.readAllBytes(Paths.get("src/main/resources/fakeData/ListIntervalles.json")), StandardCharsets.UTF_8);
 		ObjectMapper objectMapper = new ObjectMapper();
+		objectMapper.registerModule(new JavaTimeModule());
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
 		List<IntervalleHeure> intervalleHeures = objectMapper.readValue(jsonString, new TypeReference<List<IntervalleHeure>>(){});
 		for (IntervalleHeure intervalleHeure : intervalleHeures) {
+			String ouverture=formatter.format(intervalleHeure.getOuverture());
+			String fermeture=formatter.format(intervalleHeure.getFermeture());
+			//LocalTime ouvertureTime = LocalTime.parse(ouverture, formatter);
+			//LocalTime fermetureTime = LocalTime.parse(fermeture, formatter);
 			interValleHeureService.create(intervalleHeure);
 		}
 	}
 
+	//creation des Categorie
+	public void createCategorie() throws IOException {
+		String jsonString = new String(Files.readAllBytes(Paths.get("src/main/resources/fakeData/ListCategories.json")), StandardCharsets.UTF_8);
+		ObjectMapper objectMapper = new ObjectMapper();
+		List<Categorie> categories = objectMapper.readValue(jsonString, new TypeReference<List<Categorie>>(){});
+		for (Categorie categorie : categories) {
+			categorieService.create(categorie.getNom(),categorie.getDescription());
+		}
+	}
+	// création d' une Liste Horaire
+
+	public void creationHoraire() throws IOException {
+		String jsonString = new String(Files.readAllBytes(Paths.get("src/main/resources/fakeData/ListHoraires.json")), StandardCharsets.UTF_8);
+		ObjectMapper objectMapper = new ObjectMapper();
+		List<Horaire> horaires = objectMapper.readValue(jsonString, new TypeReference<List<Horaire>>(){});
+		for (Horaire horaire : horaires) {
+			horaireService.create(horaire);
+		}
+	}
 	public void createUser(){
 		utilisateurService.signup("panta" ,"letmein" ,"Luc Perin" ,"Panta") ;
 	}
