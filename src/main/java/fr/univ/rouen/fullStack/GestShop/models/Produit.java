@@ -26,7 +26,7 @@ public class Produit {
     private String imageUrl ;
     private double prix ;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "boutique_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Boutique boutique ;
