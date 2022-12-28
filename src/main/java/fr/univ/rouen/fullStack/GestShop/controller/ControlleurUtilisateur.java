@@ -15,6 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin("*")
 public class ControlleurUtilisateur {
 
     @Autowired
@@ -54,5 +55,9 @@ public class ControlleurUtilisateur {
         }else{
             return ResponseEntity.status(HttpStatus.OK).body(utilisateur);
         }
+    }
+    @GetMapping("/validToken")
+    public Boolean validtoken(@RequestParam String token){
+      return  utilisateurService.isConnected(token);
     }
 }

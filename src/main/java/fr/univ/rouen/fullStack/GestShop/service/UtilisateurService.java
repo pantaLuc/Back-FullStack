@@ -86,4 +86,9 @@ public class UtilisateurService {
     public Optional<Utilisateur> findUtilisateurByUsername(String username){
         return utilisateurRepository.findByUsername(username) ;
     }
+
+    public Boolean isConnected(String token){
+        LOGGER.info("Tentative de  verification  de validité d' un Token");
+        return jwtTokenProvider.isValidToken(token);
+    }
 }
