@@ -63,7 +63,11 @@ public class UtilisateurService {
         LOGGER.info("Tentative de creation d' utilisateur ");
         Optional<Utilisateur> utilisateur=Optional.empty() ;
         if (! utilisateurRepository.findByUsername(username).isPresent()){
-            Optional<Role> role =roleRepository.findByName("Admin");
+        	Optional<Role> role=roleRepository.findByName("Vendeur-livreur");
+        	if(username=="elaidich" || username=="pantaluc") {
+        		role =roleRepository.findByName("Admin");
+        	}
+            
 
             utilisateur=Optional.of(utilisateurRepository.save( new Utilisateur(
                     username ,
