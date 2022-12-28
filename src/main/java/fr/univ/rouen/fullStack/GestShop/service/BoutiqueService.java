@@ -2,7 +2,7 @@ package fr.univ.rouen.fullStack.GestShop.service;
 
 
 import fr.univ.rouen.fullStack.GestShop.models.Boutique;
-
+import fr.univ.rouen.fullStack.GestShop.models.Utilisateur;
 import fr.univ.rouen.fullStack.GestShop.repository.BoutiqueRepository;
 
 import java.util.List;
@@ -10,19 +10,22 @@ import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class BoutiqueService {
 	private static Logger LOGGER= LoggerFactory.getLogger(InterValleHeureService.class);
     private BoutiqueRepository boutiqueRepository ;
+    @Autowired
+    private UtilisateurService utilisateurService; 
     public BoutiqueService(BoutiqueRepository boutiqueRepository) {
 
 		this.boutiqueRepository = boutiqueRepository;
     }
-    public List<Boutique> allBoutiques(){
+    public Iterable<Boutique> allBoutiques(){
 		LOGGER.info("Tentative  obtention de toutes les boutiques ");
-		return (List<Boutique>) boutiqueRepository.findAll();
+		return  boutiqueRepository.findAll();
     }
 	 // create a new boutique
 	    public Optional<Boutique> create(Boutique boutique) {
@@ -54,4 +57,9 @@ public class BoutiqueService {
 	        }
 	        return boutiqueRepository.save(boutique.get());
 	  }
+	  public List<Boutique> findboutiquesByutilisateur(String username){
+		  Optional<Utilisateur> utilisateur=utilisateurService.findUtilisateurByUsername(username);
+			return boutiqueRepository.findByUtilisateur(utilisateur.get());
+ 
+	    }
 }

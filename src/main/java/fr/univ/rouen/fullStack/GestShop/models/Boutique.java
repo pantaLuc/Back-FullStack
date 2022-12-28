@@ -26,7 +26,7 @@ public class Boutique {
 					referencedColumnName = "id"))
     private List<Horaire> horaireList ;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id")
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	Utilisateur utilisateur ;

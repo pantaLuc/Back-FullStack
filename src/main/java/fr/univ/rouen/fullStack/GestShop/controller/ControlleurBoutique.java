@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.univ.rouen.fullStack.GestShop.models.Boutique;
 import fr.univ.rouen.fullStack.GestShop.models.Categorie;
+import fr.univ.rouen.fullStack.GestShop.models.Utilisateur;
 import fr.univ.rouen.fullStack.GestShop.service.BoutiqueService;
 
 @RestController
@@ -30,7 +31,7 @@ public class ControlleurBoutique {
 	BoutiqueService boutiqueService;
 	
 	@GetMapping("/list")
-	public List<Boutique> allboutiques() {
+	public Iterable<Boutique> allboutiques() {
 	    return boutiqueService.allBoutiques();
 	}
 	
@@ -43,6 +44,17 @@ public class ControlleurBoutique {
            return ResponseEntity.status(HttpStatus.OK).body(boutiqueRS);
        }  
     }
+    
+    @GetMapping("/searchboutiques")
+    public @ResponseBody ResponseEntity findUtilisateurByUsername(@RequestParam String username){
+        List<Boutique> listBoutiques = boutiqueService.findboutiquesByutilisateur(username);
+        if (listBoutiques.isEmpty()) {
+            return ResponseEntity.status(404).body("boutiques n'existent pas");
+        }else{
+            return ResponseEntity.status(HttpStatus.OK).body(listBoutiques);
+        }
+        }
+    
 
 
 }
