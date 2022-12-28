@@ -46,4 +46,13 @@ public class ControlleurUtilisateur {
     public List<Utilisateur> ListUser(){
         return  utilisateurService.utilisateurList();
     }
+    @GetMapping("/searchUtilisateur")
+    public @ResponseBody ResponseEntity findUtilisateurByUsername(@RequestParam String username){
+        Optional<Utilisateur> utilisateur = utilisateurService.findUtilisateurByUsername(username);
+        if (utilisateur.isEmpty()) {
+            return ResponseEntity.status(404).body("utilisateur n'existe pas");
+        }else{
+            return ResponseEntity.status(HttpStatus.OK).body(utilisateur);
+        }
+    }
 }
