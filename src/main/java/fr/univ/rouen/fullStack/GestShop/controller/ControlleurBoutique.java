@@ -48,11 +48,7 @@ public class ControlleurBoutique {
     @GetMapping("/searchboutiques")
     public @ResponseBody ResponseEntity findUtilisateurByUsername(@RequestParam String username){
         List<Boutique> listBoutiques = boutiqueService.findboutiquesByutilisateur(username);
-        if (listBoutiques.isEmpty()) {
-            return ResponseEntity.status(404).body(listBoutiques);
-        }else{
             return ResponseEntity.status(HttpStatus.OK).body(listBoutiques);
-        }
         }
     
 
