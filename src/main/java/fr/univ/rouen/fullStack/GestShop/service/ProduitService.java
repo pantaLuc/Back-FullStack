@@ -21,14 +21,13 @@ public class ProduitService {
         this.produitRepository = produitRepository;
     }
     /*Creation d'un produit */
-    public Optional<Produit> create(String product_name , String description, Categorie categorie,
+    public Optional<Produit> create(String product_name , String description, List<Categorie> categorie,
      String imageUrl, double prix , Boutique boutique , int quantité ){
         LOGGER.info("Tentative de création d' un prosduit ");
         Optional<Produit> produit=Optional.empty() ;
 
         produit=Optional.of(produitRepository.save(new Produit(product_name ,description ,categorie ,
-                imageUrl  ,prix ,
-                boutique ,quantité)));
+                imageUrl  ,prix ,boutique ,quantité)));
        return produit;
     }
 
