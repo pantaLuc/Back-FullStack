@@ -64,7 +64,7 @@ public class UtilisateurService {
         Optional<Utilisateur> utilisateur=Optional.empty() ;
         if (! utilisateurRepository.findByUsername(username).isPresent()){
         	Optional<Role> role=roleRepository.findByName("Vendeur-livreur");
-        	if(username=="elaidich" || username=="pantaluc") {
+        	if(username.equals("elaidich") || username.equals("pantaluc")) {
         		role =roleRepository.findByName("Admin");
         	}
             
