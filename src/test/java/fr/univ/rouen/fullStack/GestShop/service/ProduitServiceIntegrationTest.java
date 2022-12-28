@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.persistence.ManyToOne;
 import java.sql.Date;
+import java.util.List;
 import java.util.Optional;
 import org.junit.Assert.*;
 
@@ -22,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ProduitServiceIntegrationTest {
     private static final  String product_name = "Lait";
     private static final  String description="aucune";
-    private static Categorie categorie=null;
+    private static List<Categorie> categorie=null;
     private static  String imageUrl=null ;
     private static  double prix=12 ;
     private static Boutique boutique =null ;
