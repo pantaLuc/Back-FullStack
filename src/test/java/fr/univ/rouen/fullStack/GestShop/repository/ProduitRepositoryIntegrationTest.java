@@ -12,6 +12,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.sql.Date;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
@@ -23,7 +24,7 @@ public class ProduitRepositoryIntegrationTest {
     private static final long produit_ID = 1L;
     private static final  String product_name = "Lait";
     private static final  String description="aucune";
-    private static Categorie categorie=null;
+    private static List<Categorie> categorie=null;
     private static  String imageUrl=null ;
     private static  double prix=12 ;
     private static Boutique boutique =null ;
