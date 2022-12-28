@@ -98,7 +98,6 @@ public class Produit {
         this.prix = prix;
     }
 
-    @JsonIgnore
     public Boutique getBoutique() {
         return boutique;
     }
