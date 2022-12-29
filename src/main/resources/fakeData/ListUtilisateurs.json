@@ -1,14 +1,56 @@
 [
   {
-    "id": 1,
-    "username": "desmond",
-    "firstName": "luc",
-    "password": "letmein",
-    "lastName": "panta",
-    "roles": [
-      {
-        "id": 1
-      }
-    ]
+    "username": "jacquesdu",
+    "firstName": "Jacques",
+    "password": "J@cquesd",
+    "lastName": "Dupont"
+  },
+  {
+    "username": "mariepetit",
+    "firstName": "Marie",
+    "password": "M@riepet",
+    "lastName": "Petit"
+  },
+  {
+    "username": "michelmar",
+    "firstName": "Michel",
+    "password": "M!chelma",
+    "lastName": "Martin"
+  },
+  {
+    "username": "sophiel",
+    "firstName": "Sophie",
+    "password": "SOph!lle",
+    "lastName": "Leblanc"
+  },
+  {
+    "username": "pierred",
+    "firstName": "Pierre",
+    "password": "P!erreut",
+    "lastName": "Dumont"
+  },
+  {
+    "username": "laurentg",
+    "firstName": "Laurent",
+    "password": "L@urentg",
+    "lastName": "Gauthier"
+  },
+  {
+    "username": "juliele",
+    "firstName": "Julie",
+    "password": "JOl!llef",
+    "lastName": "Lefevre"
+  },
+  {
+    "username": "guillaum",
+    "firstName": "Guillaume",
+    "password": "G!llaumer",
+    "lastName": "Renard"
+  },
+  {
+    "username": "meira",
+    "firstName": "Luc Perin",
+    "password": "Abc!Defg",
+    "lastName": "Panta"
   }
 ]

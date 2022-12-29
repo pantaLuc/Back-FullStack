@@ -4,9 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import fr.univ.rouen.fullStack.GestShop.models.Categorie;
-import fr.univ.rouen.fullStack.GestShop.models.Horaire;
-import fr.univ.rouen.fullStack.GestShop.models.IntervalleHeure;
+import fr.univ.rouen.fullStack.GestShop.models.*;
 import fr.univ.rouen.fullStack.GestShop.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,7 +12,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import fr.univ.rouen.fullStack.GestShop.ShopApplication;
-import fr.univ.rouen.fullStack.GestShop.models.Role;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
@@ -56,11 +53,10 @@ import java.util.List;
 	public void run(String... args) throws Exception {
 
 		createRole();
-		createUser();
 		createIntervalle();
 		createCategorie();
 		creationHoraire();
-
+		createUser();
 	}
 
 	// creation des rôles à partir de fake data
@@ -108,8 +104,16 @@ import java.util.List;
 			horaireService.create(horaire);
 		}
 	}
-	public void createUser(){
-		utilisateurService.signup("panta" ,"letmein" ,"Luc Perin" ,"Panta") ;
+
+	// creation  des utilisateur
+	public void createUser() throws IOException {
+		String jsonString = new String(Files.readAllBytes(Paths.get("src/main/resources/fakeData/ListUtilisateurs.json")), StandardCharsets.UTF_8);
+		ObjectMapper objectMapper = new ObjectMapper();
+		List<Utilisateur> utilisateurList = objectMapper.readValue(jsonString, new TypeReference<List<Utilisateur>>(){});
+		for (Utilisateur user : utilisateurList) {
+			utilisateurService.signup(user.getUsername(), user.getPassword(), user.getFirstName(), user.getLastName());
+		}
+
 	}
 
 }
