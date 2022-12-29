@@ -12,6 +12,7 @@ import static org.assertj.core.api.Assertions.contentOf;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @RunWith(SpringRunner.class)
@@ -20,8 +21,9 @@ public class BoutiqueServiceIntegrationTest {
     private static  final Long ID=1L ;
     private static final String NOM="zara";
     private  static final LocalDateTime DATECREATION=LocalDateTime.now();
-    private  static final Horaire HORAIRE_LIST=null;
+    private  static final List<Horaire> HORAIRE_LIST=null;
     private static final Utilisateur UTILISATEUR=null;
+    private static  final String  IMAGE=null;
 
     @Autowired
     private BoutiqueService boutiqueService ;
@@ -29,7 +31,7 @@ public class BoutiqueServiceIntegrationTest {
     @Test
     public  void createtest(){
         //GIVEN
-        Boutique boutique =new Boutique(NOM ,DATECREATION ,  HORAIRE_LIST,UTILISATEUR);
+        Boutique boutique =new Boutique(NOM ,DATECREATION , IMAGE, HORAIRE_LIST,UTILISATEUR);
 
         //WHEN
         Optional<Boutique> boutique1= boutiqueService.create(boutique);
