@@ -26,7 +26,7 @@ import fr.univ.rouen.fullStack.GestShop.models.Categorie;
 import fr.univ.rouen.fullStack.GestShop.models.IntervalleHeure;
 import fr.univ.rouen.fullStack.GestShop.models.Produit;
 import fr.univ.rouen.fullStack.GestShop.service.InterValleHeureService;
-import static spark.Spark.*;
+
 @RestController
 @RequestMapping("/intervalleheure")
 public class ControlleurIntervalleHeure {
