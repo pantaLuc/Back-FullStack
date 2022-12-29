@@ -15,6 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin("*")
 public class ControlleurUtilisateur {
 
     @Autowired
@@ -45,5 +46,18 @@ public class ControlleurUtilisateur {
    // @PreAuthorize("hasAuthority('Admin')")
     public List<Utilisateur> ListUser(){
         return  utilisateurService.utilisateurList();
+    }
+    @GetMapping("/searchUtilisateur")
+    public @ResponseBody ResponseEntity findUtilisateurByUsername(@RequestParam String username){
+        Optional<Utilisateur> utilisateur = utilisateurService.findUtilisateurByUsername(username);
+        if (utilisateur.isEmpty()) {
+            return ResponseEntity.status(404).body("utilisateur n'existe pas");
+        }else{
+            return ResponseEntity.status(HttpStatus.OK).body(utilisateur);
+        }
+    }
+    @GetMapping("/validToken")
+    public Boolean validtoken(@RequestParam String token){
+      return  utilisateurService.isConnected(token);
     }
 }

@@ -28,7 +28,7 @@ public class ControlleurProduit {
     public @ResponseBody ResponseEntity   create(@RequestBody @Valid ProduitDto produitdto){
     	Optional<Produit> produit =produitService.create(
                 produitdto.getNom(),produitdto.getDescription(),
-                (Categorie) produitdto.getCategorieList(), produitdto.getImageUrl() ,
+                produitdto.getCategorieList(), produitdto.getImageUrl() ,
                 produitdto.getPrix(),
                 produitdto.getBoutique(),
                 produitdto.getQuantité()

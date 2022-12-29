@@ -44,7 +44,7 @@ public class UtilisateurService {
     }
     // signin
      public Optional<String> signin(String username, String password){
-        LOGGER.info("Tentative de creation d' un utilisateur ");
+        LOGGER.info("tentative de creation d' un utilisateur ");
         Optional<String> token = Optional.empty() ;
         Optional<Utilisateur> utilisateur = utilisateurRepository.findByUsername(username) ;
         if (utilisateur.isPresent()){
@@ -63,7 +63,11 @@ public class UtilisateurService {
         LOGGER.info("Tentative de creation d' utilisateur ");
         Optional<Utilisateur> utilisateur=Optional.empty() ;
         if (! utilisateurRepository.findByUsername(username).isPresent()){
-            Optional<Role> role =roleRepository.findByName("Admin");
+        	Optional<Role> role=roleRepository.findByName("Vendeur-livreur");
+        	if(username.equals("elaidich") || username.equals("pantaluc")) {
+        		role =roleRepository.findByName("Admin");
+        	}
+            
 
             utilisateur=Optional.of(utilisateurRepository.save( new Utilisateur(
                     username ,
@@ -78,5 +82,13 @@ public class UtilisateurService {
 
     public List<Utilisateur> utilisateurList(){
         return utilisateurRepository.findAll() ;
+    }
+    public Optional<Utilisateur> findUtilisateurByUsername(String username){
+        return utilisateurRepository.findByUsername(username) ;
+    }
+
+    public Boolean isConnected(String token){
+        LOGGER.info("Tentative de  verification  de validité d' un Token");
+        return jwtTokenProvider.isValidToken(token);
     }
 }

@@ -26,7 +26,7 @@ public class Produit {
     private String imageUrl ;
     private double prix ;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "boutique_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Boutique boutique ;
@@ -35,17 +35,22 @@ public class Produit {
     public Produit() {
     }
 
-    public Produit(String nom, String description, Categorie categorieList, String imageUrl, double prix, Boutique boutique, int quantité) {
-        this.nom = nom;
-        this.description = description;
-        this.categorieList = Arrays.asList(categorieList);
-        this.imageUrl = imageUrl;
-        this.prix = prix;
-        this.boutique = boutique;
-        this.quantité = quantité;
-    }
+   
 
-    public long getId() {
+    public Produit(String nom, String description, List<Categorie> categorieList, String imageUrl, double prix,
+			Boutique boutique, int quantité) {
+		this.nom = nom;
+		this.description = description;
+		this.categorieList = categorieList;
+		this.imageUrl = imageUrl;
+		this.prix = prix;
+		this.boutique = boutique;
+		this.quantité = quantité;
+	}
+
+
+
+	public long getId() {
         return id;
     }
 
@@ -93,7 +98,6 @@ public class Produit {
         this.prix = prix;
     }
 
-    @JsonIgnore
     public Boutique getBoutique() {
         return boutique;
     }

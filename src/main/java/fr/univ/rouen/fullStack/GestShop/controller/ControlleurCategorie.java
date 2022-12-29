@@ -15,7 +15,7 @@ import fr.univ.rouen.fullStack.GestShop.service.CategorieService;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
-import static spark.Spark.*;
+
 
 @RestController
 @RequestMapping("/categorie")
