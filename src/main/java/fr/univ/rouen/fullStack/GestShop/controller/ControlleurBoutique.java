@@ -29,7 +29,7 @@ public class ControlleurBoutique {
 	    return boutiqueService.allBoutiques();
 	}
 	
-    @PostMapping("/create")
+    @PostMapping("")
     @PreAuthorize("hasAuthority('Vendeur-livreur')")
     public  @ResponseBody ResponseEntity create(@RequestBody Boutique boutique){
     	Optional<Boutique> boutiqueRS = boutiqueService.create(boutique) ;
@@ -40,9 +40,24 @@ public class ControlleurBoutique {
        }  
     }
     
-    @GetMapping("/searchboutiques")
+    @GetMapping("/searbyUserName")
     public @ResponseBody ResponseEntity findUtilisateurByUsername(@RequestParam String username){
         List<Boutique> listBoutiques = boutiqueService.findboutiquesByutilisateur(username);
             return ResponseEntity.status(HttpStatus.OK).body(listBoutiques);
         }
+        //suppression
+    @DeleteMapping( "")
+    public void delete(@RequestParam Long id){
+        boutiqueService.deleteById(id);
+    }
+
+    @PutMapping( "")
+    public @ResponseBody ResponseEntity  updateBoutique(@RequestBody Boutique boutique){
+        Boutique boutique1= boutiqueService.update(boutique);
+        if (boutique1 == null) {
+            return ResponseEntity.status(404).body("categorie n'existe pas");
+        }else{
+            return ResponseEntity.status(HttpStatus.OK).body(boutique1);
+        }
+    }
 }

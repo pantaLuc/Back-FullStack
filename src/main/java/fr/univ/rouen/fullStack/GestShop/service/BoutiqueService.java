@@ -2,6 +2,7 @@ package fr.univ.rouen.fullStack.GestShop.service;
 
 
 import fr.univ.rouen.fullStack.GestShop.models.Boutique;
+import fr.univ.rouen.fullStack.GestShop.models.Categorie;
 import fr.univ.rouen.fullStack.GestShop.models.Utilisateur;
 import fr.univ.rouen.fullStack.GestShop.repository.BoutiqueRepository;
 
@@ -48,15 +49,14 @@ public class BoutiqueService {
 	            boutiqueRepository.delete(boutique.get());
 	        }
 	  }
-	  // Update a boutique Name
-	  public Boutique updateName(long id , String nom){
-		  LOGGER.info("Tentative de modification d' une Boutique");
-	        Optional<Boutique> boutique=boutiqueRepository.findById(id);
-	        if(boutique.isPresent()){
-	        	boutique.get().setNom(nom);
-	        }
-	        return boutiqueRepository.save(boutique.get());
-	  }
+
+	public Boutique update(Boutique boutique){
+		LOGGER.info("Tentative de modification   d' une Boutique");
+		if(boutiqueRepository.findById(boutique.getId()).isPresent()){
+			return boutiqueRepository.save(boutique);
+		}
+		return null;
+	}
 	  public List<Boutique> findboutiquesByutilisateur(String username){
 		  Optional<Utilisateur> utilisateur=utilisateurService.findUtilisateurByUsername(username);
 			return boutiqueRepository.findByUtilisateur(utilisateur.get());
