@@ -45,7 +45,4 @@ public class ControlleurBoutique {
         List<Boutique> listBoutiques = boutiqueService.findboutiquesByutilisateur(username);
             return ResponseEntity.status(HttpStatus.OK).body(listBoutiques);
         }
-    
-
-
 }

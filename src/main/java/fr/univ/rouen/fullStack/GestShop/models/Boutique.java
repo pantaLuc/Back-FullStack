@@ -1,6 +1,7 @@
 package fr.univ.rouen.fullStack.GestShop.models;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
@@ -12,8 +13,6 @@ import java.util.*;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
 public class Boutique {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -46,4 +45,51 @@ public class Boutique {
 		this.utilisateur = utilisateur;
 	}
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public LocalDateTime getDateCreationBoutique() {
+		return dateCreationBoutique;
+	}
+
+	public void setDateCreationBoutique(LocalDateTime dateCreationBoutique) {
+		this.dateCreationBoutique = dateCreationBoutique;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public List<Horaire> getHoraireList() {
+		return horaireList;
+	}
+
+	public void setHoraireList(List<Horaire> horaireList) {
+		this.horaireList = horaireList;
+	}
+
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}
 }

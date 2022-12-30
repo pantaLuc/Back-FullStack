@@ -60,6 +60,6 @@ public class BoutiqueService {
 	  public List<Boutique> findboutiquesByutilisateur(String username){
 		  Optional<Utilisateur> utilisateur=utilisateurService.findUtilisateurByUsername(username);
 			return boutiqueRepository.findByUtilisateur(utilisateur.get());
- 
+
 	    }
 }
