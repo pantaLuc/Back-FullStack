@@ -43,7 +43,7 @@ public class ControlleurUtilisateur {
         }
     }
     @GetMapping("/allUsers")
-   // @PreAuthorize("hasAuthority('Admin')")
+    @PreAuthorize("hasAuthority('Admin')")
     public List<Utilisateur> ListUser(){
         return  utilisateurService.utilisateurList();
     }

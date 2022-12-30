@@ -19,6 +19,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/categorie")
+@CrossOrigin("*")
 public class ControlleurCategorie {
 
         @Autowired

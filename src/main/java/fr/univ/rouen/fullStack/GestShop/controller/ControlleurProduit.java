@@ -16,6 +16,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("produit")
+@CrossOrigin("*")
 public class ControlleurProduit {
     @Autowired
     private ProduitService produitService ;
