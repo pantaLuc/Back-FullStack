@@ -1,6 +1,7 @@
 package fr.univ.rouen.fullStack.GestShop.controller;
 
 import fr.univ.rouen.fullStack.GestShop.dto.UtilisateurDto;
+import fr.univ.rouen.fullStack.GestShop.models.Produit;
 import fr.univ.rouen.fullStack.GestShop.models.Utilisateur;
 import fr.univ.rouen.fullStack.GestShop.service.UtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,5 +60,15 @@ public class ControlleurUtilisateur {
     @GetMapping("/validToken")
     public Boolean validtoken(@RequestParam String token){
       return  utilisateurService.isConnected(token);
+    }
+
+    @GetMapping( "/searchNom")
+    public  @ResponseBody ResponseEntity  searchbyNom(@RequestParam String username){
+        Optional<Utilisateur> utilisateur = utilisateurService.findByUsername(username);
+        if (utilisateur.isEmpty()) {
+            return ResponseEntity.status(404).body("utilisateur n'existe pas");
+        }else{
+            return ResponseEntity.status(HttpStatus.OK).body(utilisateur);
+        }
     }
 }

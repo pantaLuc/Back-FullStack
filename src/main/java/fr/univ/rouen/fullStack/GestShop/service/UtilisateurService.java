@@ -3,6 +3,7 @@ package fr.univ.rouen.fullStack.GestShop.service;
 
 import fr.univ.rouen.fullStack.GestShop.config.JwtTokenProvider;
 import fr.univ.rouen.fullStack.GestShop.models.Boutique;
+import fr.univ.rouen.fullStack.GestShop.models.Produit;
 import fr.univ.rouen.fullStack.GestShop.models.Role;
 import fr.univ.rouen.fullStack.GestShop.models.Utilisateur;
 import fr.univ.rouen.fullStack.GestShop.repository.RoleRepository;
@@ -44,7 +45,7 @@ public class UtilisateurService {
     }
     // signin
      public Optional<String> signin(String username, String password){
-        LOGGER.info("tentative de creation d' un utilisateur ");
+        LOGGER.info("Tentative de connexion d' un utilisateur ");
         Optional<String> token = Optional.empty() ;
         Optional<Utilisateur> utilisateur = utilisateurRepository.findByUsername(username) ;
         if (utilisateur.isPresent()){
@@ -86,9 +87,18 @@ public class UtilisateurService {
     public Optional<Utilisateur> findUtilisateurByUsername(String username){
         return utilisateurRepository.findByUsername(username) ;
     }
-
+    // verifiaction de la validité d' un Token s' il est valide le user est connecté
     public Boolean isConnected(String token){
         LOGGER.info("Tentative de  verification  de validité d' un Token");
         return jwtTokenProvider.isValidToken(token);
+    }
+    // Rechercherche d' un user par son son userName
+    public Optional<Utilisateur> findByUsername(String username){
+        LOGGER.info("Tentative de récherche d' un Utilisateur par son Nom ");
+        Optional<Utilisateur> utilisateur =Optional.empty() ;
+        if( utilisateurRepository.findByUsername(username).isPresent()){
+            utilisateur=utilisateurRepository.findByUsername(username) ;
+        }
+        return utilisateur ;
     }
 }
