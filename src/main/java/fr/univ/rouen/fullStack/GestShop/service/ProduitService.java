@@ -23,7 +23,7 @@ public class ProduitService {
     /*Creation d'un produit */
     public Optional<Produit> create(String product_name , String description, List<Categorie> categorie,
      String imageUrl, double prix , Boutique boutique , int quantité ){
-        LOGGER.info("Tentative de création d' un prosduit ");
+        LOGGER.info("Tentative de création d' un produit ");
         Optional<Produit> produit=Optional.empty() ;
 
         produit=Optional.of(produitRepository.save(new Produit(product_name ,description ,categorie ,
@@ -60,7 +60,7 @@ public class ProduitService {
     }
     // Modifier Un produit
     public Produit updateProduit(Produit produit){
-        LOGGER.info("Tentative de création d' un produit par Bouti ");
+        LOGGER.info("Tentative de  de Modification d' un Produit ");
         if( produitRepository.findById(produit.getId()).isPresent()){
             return produitRepository.save(produit);
         }

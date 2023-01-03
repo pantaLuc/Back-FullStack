@@ -98,7 +98,7 @@
         "id": 4
       }
     ],
-    "imageUrl": "https://www.example.com/saumon.jpg",
+    "imageUrl": "https://img.freepik.com/photos-gratuite/poisson-saumon-cru-ardoise-noire_1220-3158.jpg",
     "prix": 7,
     "quantité": 3,
     "boutique":{
@@ -113,7 +113,7 @@
         "id": 4
       }
     ],
-    "imageUrl": "https://www.example.com/tilapia.jpg",
+    "imageUrl": "https://img.freepik.com/photos-gratuite/tilapia-brut_1339-894.jpg",
     "prix": 5,
     "quantité": 4,
     "boutique":{
@@ -128,7 +128,7 @@
         "id": 4
       }
     ],
-    "imageUrl": "https://www.example.com/filet_de_boeuf.jpg",
+    "imageUrl": "https://img.freepik.com/photos-gratuite/vue-face-viande-basturma-kebab-tomate-piment-grill-oignon-au-sumac_141793-4633.jpg",
     "prix": 10,
     "quantité": 2,
     "boutique":{
@@ -143,7 +143,7 @@
         "id": 4
       }
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1604503468506-a8da13d82791",
+    "imageUrl": "https://img.freepik.com/photos-gratuite/deux-filets-poulet-plaque-bleue_114579-58236.jpg",
     "prix": 4,
     "quantité": 4,
     "boutique":{
@@ -233,7 +233,7 @@
         "id": 4
       }
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1498530875991-2806ee9dd6d",
+    "imageUrl": "https://img.freepik.com/photos-gratuite/barbecue-variete-viandes-tomates-poivrons-plaque-blanche_1150-22572.jpg",
     "prix": 6,
     "quantité": 3,
     "boutique":{
@@ -248,7 +248,7 @@
         "id": 5
       }
     ],
-    "imageUrl": "https://www.example.com/lait_entier.jpg",
+    "imageUrl": "https://img.freepik.com/photos-gratuite/biscotti-ble-entier-au-lait_661915-225.jpg",
     "prix": 2,
     "quantité": 2,
     "boutique":{
@@ -263,7 +263,7 @@
         "id": 5
       }
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1523473827533-2a64d0d36748",
+    "imageUrl": "https://img.freepik.com/photos-gratuite/apprentie-barista-apprend-ecremer-du-lait-dans-cruche-premier-jour-son-nouvel-emploi_197531-31059.jpg",
     "prix": 1,
     "quantité": 3,
     "boutique":{
@@ -278,7 +278,7 @@
         "id": 5
       }
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1555465083-a845797ef750",
+    "imageUrl": "https://img.freepik.com/photos-gratuite/lait-soja-soja-table-bois_1150-13413.jpg",
     "prix": 2,
     "quantité": 2,
     "boutique":{
