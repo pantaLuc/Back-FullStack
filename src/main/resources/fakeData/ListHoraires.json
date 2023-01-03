@@ -6,7 +6,7 @@
         "id": 1
       }
     ],
-    "estEnCongé": true
+    "estEnCongé": false
   },
   {
     "joursemaine": "MARDI",
@@ -15,7 +15,7 @@
         "id": 1
       }
     ],
-    "estEnCongé": true
+    "estEnCongé": false
   },
   {
     "joursemaine": "MERCREDI",
@@ -24,7 +24,7 @@
         "id": 2
       }
     ],
-    "estEnCongé": true
+    "estEnCongé": false
   },
   {
   "joursemaine": "JEUDI",
@@ -33,7 +33,7 @@
       "id": 1
     }
   ],
-  "estEnCongé": true
+  "estEnCongé": false
 },
   {
   "joursemaine": "VENDREDI",
@@ -42,7 +42,7 @@
       "id": 1
     }
   ],
-  "estEnCongé": true
+  "estEnCongé": false
 },
   {
     "joursemaine": "SAMEDI",
@@ -51,12 +51,12 @@
         "id": 2
       }
     ],
-    "estEnCongé": true
+    "estEnCongé": false
   },
   {
     "joursemaine": "DIMANCHE",
     "intervalleHeure":null,
-    "estEnCongé": false
+    "estEnCongé": true
   }
 
 ]

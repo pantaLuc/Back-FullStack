@@ -43,6 +43,10 @@ import java.util.List;
 	private CategorieService categorieService ;
 	@Autowired
 	private HoraireService horaireService ;
+	@Autowired
+	private BoutiqueService boutiqueService;
+	@Autowired
+	private  ProduitService produitService;
 
 	public static void main(String[] args) {
 
@@ -57,6 +61,8 @@ import java.util.List;
 		createCategorie();
 		creationHoraire();
 		createUser();
+		createBoutique();
+		createProduit();
 	}
 
 	// creation des rôles à partir de fake data
@@ -114,6 +120,35 @@ import java.util.List;
 			utilisateurService.signup(user.getUsername(), user.getPassword(), user.getFirstName(), user.getLastName());
 		}
 
+	}
+
+	// création des boutiques
+
+	public void createBoutique() throws IOException{
+		String jsonString = new String(Files.readAllBytes(Paths.get("src/main/resources/fakeData/ListBoutiques.json")), StandardCharsets.UTF_8);
+		ObjectMapper objectMapper = new ObjectMapper();
+		objectMapper.registerModule(new JavaTimeModule());
+		List<Boutique>  boutiqueList = objectMapper.readValue(jsonString, new TypeReference<List<Boutique>>(){});
+		for (Boutique boutique : boutiqueList) {
+				boutiqueService.create(boutique);
+		}
+	}
+	// création des produits
+
+	public void createProduit() throws IOException{
+		String jsonString = new String(Files.readAllBytes(Paths.get("src/main/resources/fakeData/ListProduits.json")), StandardCharsets.UTF_8);
+		ObjectMapper objectMapper = new ObjectMapper();
+		objectMapper.registerModule(new JavaTimeModule());
+		List<Produit>  produitList = objectMapper.readValue(jsonString, new TypeReference<List<Produit>>(){});
+		for (Produit  produit: produitList) {
+			produitService.create(produit.getNom() ,produit.getDescription()
+					,produit.getCategorieList() ,
+					produit.getImageUrl(),
+					produit.getPrix(),
+					produit.getBoutique(),
+					produit.getQuantité()
+					);
+		}
 	}
 
 }

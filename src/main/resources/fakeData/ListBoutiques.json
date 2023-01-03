@@ -1,1 +1,196 @@
-{}
+[
+  {
+    "nom": "Boulangerie du coin",
+    "dateCreationBoutique": "2022-06-15T09:00:00.000Z",
+    "image": "https://img.freepik.com/free-photo/close-up-pastry-chef-preparing-food_23-2149038990.jpg",
+    "horaireList":  [
+      {
+        "id": 1
+      },
+      {
+        "id": 2
+      },
+      {
+        "id": 3
+      },
+      {
+        "id": 4
+      },
+      {
+        "id": 5
+      },
+      {
+        "id": 6
+
+      },
+      {
+        "id": 7
+      }
+    ],
+    "utilisateur": {
+      "id": 13
+    }
+  },
+  {
+    "nom": "superrette du village",
+    "dateCreationBoutique": "2022-01-20T08:00:00.000Z",
+    "image": "https://img.freepik.com/free-photo/fresh-fruit-stalls-san-miguel-market_53876-146829.jpg",
+    "horaireList": [
+      {
+        "id": 1
+      },
+      {
+        "id": 2
+      },
+      {
+        "id": 3
+      },
+      {
+        "id": 4
+      },
+      {
+        "id": 5
+      },
+      {
+        "id": 6
+
+      },
+      {
+        "id": 7
+      }
+    ],
+    "utilisateur": {
+      "id": 12
+    }
+  },
+  {
+    "id": 3,
+    "nom": "Supermarché du  bonheur",
+    "dateCreationBoutique": "2022-03-01T09:30:00.000Z",
+    "image": "https://img.freepik.com/free-photo/close-up-view-shopping-cart-overloaded-with-food-while-background-female-person-choosing-products_342744-1133.jpg",
+    "horaireList":  [
+      {
+        "id": 1
+      },
+      {
+        "id": 2
+      },
+      {
+        "id": 3
+      },
+      {
+        "id": 4
+      },
+      {
+        "id": 5
+      },
+      {
+        "id": 6
+
+      },
+      {
+        "id": 7
+      }
+    ],
+    "utilisateur": {
+      "id": 11
+    }
+  },
+  {
+    "id": 4,
+    "nom": "Parfumerie du centre-ville",
+    "dateCreationBoutique": "2022-05-10T10:00:00.000Z",
+    "image": "https://img.freepik.com/free-photo/front-view-bottle-fragrance-parfume-designed-colors-white-wall_140725-11607.jpg",
+    "horaireList":  [
+      {
+        "id": 1
+      },
+      {
+        "id": 2
+      },
+      {
+        "id": 3
+      },
+      {
+        "id": 4
+      },
+      {
+        "id": 5
+      },
+      {
+        "id": 6
+
+      },
+      {
+        "id": 7
+      }
+    ],
+    "utilisateur": {
+      "id": 14
+    }
+  },
+  {
+    "nom": "Epicerie fine",
+    "dateCreationBoutique": "2022-07-01T11:00:00.000Z",
+    "image": "https://img.freepik.com/free-photo/different-type-raw-dry-legumes-composition-marble-table-surface_114579-73137.jpg",
+    "horaireList":  [
+      {
+        "id": 1
+      },
+      {
+        "id": 2
+      },
+      {
+        "id": 3
+      },
+      {
+        "id": 4
+      },
+      {
+        "id": 5
+      },
+      {
+        "id": 6
+
+      },
+      {
+        "id": 7
+      }
+    ],
+    "utilisateur": {
+      "id": 14
+    }
+  },
+  {
+    "nom": "Habille Toi",
+    "dateCreationBoutique": "2022-09-15T12:00:00.000Z",
+    "image": "https://img.freepik.com/free-photo/defocussed-man-choosing-shirt-from-rail-shop_23-2148175633.jpg",
+    "horaireList": [
+      {
+        "id": 1
+      },
+      {
+        "id": 2
+      },
+      {
+        "id": 3
+      },
+      {
+        "id": 4
+      },
+      {
+        "id": 5
+      },
+      {
+        "id": 6
+
+      },
+      {
+        "id": 7
+      }
+    ],
+    "utilisateur": {
+      "id": 13
+    }
+  }
+]
