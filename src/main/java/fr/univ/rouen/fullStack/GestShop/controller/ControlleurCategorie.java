@@ -42,6 +42,8 @@ public class ControlleurCategorie {
         }
         @GetMapping( "/searchNom")
         public @ResponseBody ResponseEntity  searchbyNom(@RequestParam String nom)  {
+
+
         	Optional<Categorie> categorie = categorieService.searchByName(nom);
        		if (categorie.isEmpty()) {
                return ResponseEntity.status(404).body("categorie n'existe pas");

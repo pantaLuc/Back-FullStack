@@ -3,12 +3,9 @@ services:
   db:
     container_name: fullStack
     image: mysql:8.0
-    #Le cap_add défini à SYS_NICE supprime certains messages d'erreur inutiles.
     cap_add:
       - SYS_NICE
-    #Ensuite, nous demandons à docker-compose de toujours redémarrer ce conteneur s'il échoue.
     restart: always
-    #Pour ne pas utiliser les parametre par defaut
     environment:
       - MYSQL_DATABASE=fullStack
       - MYSQL_USER=fullstack
@@ -18,8 +15,27 @@ services:
       - '3306:3306'
     expose:
       - '3306'
-    #Ou on va persister nos données
     volumes:
       - db:/var/lib/mysql
+
+  app:
+    build: .
+    depends_on:
+      - db
+    ports:
+      - '8080:8080'
+    volumes:
+      - target:/app
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/fullStack
+      - spring.main.web-application-type=none
+      - DATABASE_HOST=db
+      - DATABASE_NAME=fullStack
+      - DATABASE_USER=fullstack
+      - DATABASE_PASSWORD=fullstack
+    links:
+      - db
+
 volumes:
   db:
+  target:
