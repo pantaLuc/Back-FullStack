@@ -1,41 +1,26 @@
-version: '3.8'
+version: '3'
 services:
   db:
-    container_name: fullStack
-    image: mysql:8.0
-    cap_add:
-      - SYS_NICE
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
-      - MYSQL_DATABASE=fullStack
-      - MYSQL_USER=fullstack
-      - MYSQL_PASSWORD=fullstack
-      - MYSQL_ROOT_PASSWORD=fullstack
+      MYSQL_ROOT_PASSWORD: fullstack
+      MYSQL_DATABASE: fullStack
+      MYSQL_USER: fullstack
+      MYSQL_PASSWORD: fullstack
     ports:
-      - '3306:3306'
-    expose:
-      - '3306'
-    volumes:
-      - db:/var/lib/mysql
-
-  app:
+      - "3306:3306"
+  web:
     build: .
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/fullStack?useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: fullstack
+      SPRING_DATASOURCE_PASSWORD: fullstack
     depends_on:
       - db
-    ports:
-      - '8080:8080'
-    volumes:
-      - target:/app
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/fullStack
-      - spring.main.web-application-type=none
-      - DATABASE_HOST=db
-      - DATABASE_NAME=fullStack
-      - DATABASE_USER=fullstack
-      - DATABASE_PASSWORD=fullstack
-    links:
-      - db
 
-volumes:
-  db:
-  target:
+
+

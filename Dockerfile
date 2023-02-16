@@ -1,14 +1,9 @@
-# Fetching latest version of Java
-FROM openjdk:17
+FROM maven:3.8.7-eclipse-temurin-17-alpine
 
-# Setting up work directory
-WORKDIR /app
+WORKDIR /usr/src/app
 
-# Copy the jar file into our app
-COPY ./target/gestShop-0.0.1-SNAPSHOT.jar /app
-
-# Exposing port 8080
+COPY . /usr/src/app
+RUN mvn package
+ENV PORT 8080
 EXPOSE 8080
-
-# Starting the application
-CMD ["java", "-Dspring.profiles.active=mysql" ,"-jar", "gestShop-0.0.1-SNAPSHOT.jar"]
+CMD [ "sh", "-c", "mvn -Dserver.port=${PORT} spring-boot:run" ]
