@@ -1,0 +1,304 @@
+
+[
+  {
+    "nom": "Pommes",
+    "description": "Des pommes juteuses et savoureuses, idéales pour une collation ou pour être utilisées dans les recettes de cuisine.",
+    "categorieList": [
+      {
+        "id": 3
+      }
+    ],
+    "imageUrl": "https://img.freepik.com/free-photo/apples-table_144627-6741.jpg",
+    "prix": 3,
+    "quantité": 5,
+    "boutique":{
+      "id": 24
+    }
+  },
+  {
+    "nom": "Poires",
+    "description": "Des poires douces et parfaites pour un dessert ou une collation.",
+    "categorieList": [
+      {
+        "id": 3
+      }
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1514756331096-242fdeb70d4a",
+    "prix": 2,
+    "quantité": 10,
+    "boutique":{
+      "id": 24
+    }
+  },
+  {
+    "nom": "Bananes",
+    "description": "Des bananes juteuses et riches en potassium, idéales pour un en-cas rapide.",
+    "categorieList": [
+      {
+        "id": 3
+      }
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1566393028639-d108a42c46a7",
+    "prix": 1,
+    "quantité": 15,
+    "boutique":{
+      "id": 21
+    }
+  },
+  {
+    "nom": "Tomates",
+    "description": "Des tomates rouges et juteuses, idéales pour être utilisées dans les salades et les sandwichs.",
+    "categorieList": [
+      {
+        "id": 3
+      }
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1546094096-0df4bcaaa337",
+    "prix": 3,
+    "quantité": 7,
+    "boutique":{
+      "id": 21
+    }
+  },
+  {
+    "nom": "Concombres",
+    "description": "Des concombres frais et croquants, idéaux pour être utilisés dans les salades et les sandwichs.",
+    "categorieList": [
+      {
+        "id": 3
+      }
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1568584711271-6c929fb49b60",
+    "prix": 2,
+    "quantité": 12,
+    "boutique":{
+      "id": 24
+    }
+  },
+  {
+    "nom": "Carottes",
+    "description": "Des carottes croquantes et sucrées, idéales pour être utilisées dans les salades et les recettes de cuisine.",
+    "categorieList": [
+      {
+        "id": 3
+      }
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1445282768818-728615cc910a",
+    "prix": 1,
+    "quantité": 20,
+    "boutique":{
+      "id": 21
+    }
+  },
+  {
+    "nom": "Saumon",
+    "description": "Du saumon frais et savoureux, idéal pour être grillé ou cuit au four.",
+    "categorieList": [
+      {
+        "id": 4
+      }
+    ],
+    "imageUrl": "https://img.freepik.com/photos-gratuite/poisson-saumon-cru-ardoise-noire_1220-3158.jpg",
+    "prix": 7,
+    "quantité": 3,
+    "boutique":{
+      "id": 22
+    }
+  },
+  {
+    "nom": "Tilapia",
+    "description": "De la tilapia fraîche et savoureuse, idéale pour être grillée ou cuite au four.",
+    "categorieList": [
+      {
+        "id": 4
+      }
+    ],
+    "imageUrl": "https://img.freepik.com/photos-gratuite/tilapia-brut_1339-894.jpg",
+    "prix": 5,
+    "quantité": 4,
+    "boutique":{
+      "id": 22
+    }
+  },
+  {
+    "nom": "Filet de boeuf",
+    "description": "Des filets de boeuf tendres et juteux, idéaux pour être grillés ou cuits au four.",
+    "categorieList": [
+      {
+        "id": 4
+      }
+    ],
+    "imageUrl": "https://img.freepik.com/photos-gratuite/vue-face-viande-basturma-kebab-tomate-piment-grill-oignon-au-sumac_141793-4633.jpg",
+    "prix": 10,
+    "quantité": 2,
+    "boutique":{
+      "id": 22
+    }
+  },
+  {
+    "nom": "Poitrine de poulet",
+    "description": "De la poitrine de poulet juteuse et savoureuse, idéale pour être grillée ou cuite au four.",
+    "categorieList": [
+      {
+        "id": 4
+      }
+    ],
+    "imageUrl": "https://img.freepik.com/photos-gratuite/deux-filets-poulet-plaque-bleue_114579-58236.jpg",
+    "prix": 4,
+    "quantité": 4,
+    "boutique":{
+      "id": 22
+    }
+  },
+  {
+    "nom": "Thon",
+    "description": "Du thon frais et savoureux, idéal pour être grillé ou cuit au four.",
+    "categorieList": [
+      {
+        "id": 4
+      }
+    ],
+    "imageUrl": "https://img.freepik.com/free-photo/tuna-sandwich-wood_1339-6637.jpg",
+    "prix": 8,
+    "quantité": 3,
+    "boutique":{
+      "id": 22
+    }
+  },
+  {
+    "nom": "Saumon fumé",
+    "description": "Du saumon fumé frais et savoureux, idéal pour être utilisé dans les sandwichs ou les salades.",
+    "categorieList": [
+      {
+        "id": 4
+      }
+    ],
+    "imageUrl": "https://img.freepik.com/free-photo/raw-salmon-fish-black-slate_1220-3158.jpg",
+    "prix": 10,
+    "quantité": 2,
+    "boutique":{
+      "id": 22
+    }
+  },
+  {
+    "nom": "Steaks de boeuf",
+    "description": "Des steaks de boeuf tendres et juteux, idéaux pour être grillés ou cuits au four.",
+    "categorieList": [
+      {
+        "id":4
+      }
+    ],
+    "imageUrl": "https://img.freepik.com/free-photo/beef-steak_1205-516.jpg?",
+    "prix": 12,
+    "quantité": 2,
+    "boutique":{
+      "id": 22
+    }
+  },
+  {
+    "nom": "Longe de porc",
+    "description": "De la longe de porc juteuse et savoureuse, idéale pour être grillée ou cuite au four.",
+    "categorieList": [
+      {
+        "id": 4
+      }
+    ],
+    "imageUrl": "https://img.freepik.com/free-photo/top-view-fresh-sliced-ham-wooden-desk-grey-background_140725-133026.jpg",
+    "prix": 7,
+    "quantité": 3,
+    "boutique":{
+      "id": 22
+    }
+  },
+  {
+    "nom": "Poitrine de dinde",
+    "description": "De la poitrine de dinde juteuse et savoureuse, idéale pour être grillée ou cuite au four.",
+    "categorieList": [
+      {
+        "id": 4
+      }
+    ],
+    "imageUrl": "https://img.freepik.com/free-photo/sliced-onion-chicken-breast-plate-marble-background_114579-91098.jpg",
+    "prix": 5,
+    "quantité": 4,
+    "boutique":{
+      "id": 22
+    }
+  },
+  {
+    "nom": "Brochette de poulet",
+    "description": "Des brochettes de poulet tendres et juteuses, idéales pour être grillées ou cuites au four.",
+    "categorieList": [
+      {
+        "id": 4
+      }
+    ],
+    "imageUrl": "https://img.freepik.com/photos-gratuite/barbecue-variete-viandes-tomates-poivrons-plaque-blanche_1150-22572.jpg",
+    "prix": 6,
+    "quantité": 3,
+    "boutique":{
+      "id": 22
+    }
+  },
+  {
+    "nom": "Lait entier",
+    "description": "Du lait entier frais et savoureux, idéal pour être utilisé dans les boissons chaudes ou froides.",
+    "categorieList": [
+      {
+        "id": 5
+      }
+    ],
+    "imageUrl": "https://img.freepik.com/photos-gratuite/biscotti-ble-entier-au-lait_661915-225.jpg",
+    "prix": 2,
+    "quantité": 2,
+    "boutique":{
+      "id": 22
+    }
+  },
+  {
+    "nom": "Lait écrémé",
+    "description": "Du lait écrémé frais et savoureux, idéal pour être utilisé dans les boissons chaudes ou froides.",
+    "categorieList": [
+      {
+        "id": 5
+      }
+    ],
+    "imageUrl": "https://img.freepik.com/photos-gratuite/apprentie-barista-apprend-ecremer-du-lait-dans-cruche-premier-jour-son-nouvel-emploi_197531-31059.jpg",
+    "prix": 1,
+    "quantité": 3,
+    "boutique":{
+      "id": 22
+    }
+  },
+  {
+    "nom": "Lait de soja",
+    "description": "Du lait de soja frais et savoureux, idéal pour être utilisé dans les boissons chaudes ou froides.",
+    "categorieList": [
+      {
+        "id": 5
+      }
+    ],
+    "imageUrl": "https://img.freepik.com/photos-gratuite/lait-soja-soja-table-bois_1150-13413.jpg",
+    "prix": 2,
+    "quantité": 2,
+    "boutique":{
+      "id": 22
+    }
+  },
+  {
+    "nom": "Fromage cheddar",
+    "description": "Du fromage cheddar frais et savoureux, idéal pour être utilisé dans les sandwichs ou les salades.",
+    "categorieList": [
+      {
+        "id": 5
+      }
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1618164436241-4473940d1f5c",
+    "prix": 3,
+    "quantité": 3,
+    "boutique":{
+      "id": 22
+    }
+  }
+]
+

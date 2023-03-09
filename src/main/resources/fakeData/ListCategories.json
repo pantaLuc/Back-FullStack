@@ -1,0 +1,34 @@
+[
+  {
+    "nom": "Produits frais",
+    "description": "Une variété de fruits et légumes frais."
+  },
+  {
+    "nom": "Viande",
+    "description": "Une variété de viandes fraîches et congelées, y compris de la viande de boeuf, de porc, de poulet et de poisson."
+  },
+  {
+    "nom": "Produits laitiers",
+    "description": "Une variété de produits laitiers, y compris du lait, du fromage et du beurre."
+  },
+  {
+    "nom": "Boulangerie",
+    "description": "Une variété de pains, pâtisseries et autres produits de boulangerie."
+  },
+  {
+    "nom": "Produits en conserve et emballés",
+    "description": "Une variété de produits en conserve et emballés, y compris des fruits et légumes en conserve, des soupes, des pâtes et du riz."
+  },
+  {
+    "nom": "Produits surgelés",
+    "description": "Une variété de produits surgelés, y compris des repas et de la crème glacée."
+  },
+  {
+    "nom": "Produits ménagers",
+    "description": "Une variété de produits ménagers, y compris des produits d'entretien et des produits en papier."
+  },
+  {
+    "nom": "Soins personnels",
+    "description": "Une variété de produits de soins personnels, y compris des produits de toilette et des cosmétiques."
+  }
+]

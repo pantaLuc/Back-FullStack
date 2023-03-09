@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: fullstack
+      MYSQL_DATABASE: fullStack
+      MYSQL_USER: fullstack
+      MYSQL_PASSWORD: fullstack
+    ports:
+      - "3306:3306"
+  web:
+    build: .
+    ports:&
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/fullStack?useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: fullstack
+      SPRING_DATASOURCE_PASSWORD: fullstack
+    depends_on:
+      - db
+
+
+

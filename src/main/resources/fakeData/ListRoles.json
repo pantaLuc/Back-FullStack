@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "name": "Admin",
+    "description": "Gere Les Utilisateurs du systemes et les categories"
+  },
+  {
+    "id": 2,
+    "name": "Vendeur-livreur",
+    "description": "Vend des produits et livre les commandes aux clients"
+  }
+]
